@@ -1,9 +1,9 @@
 services:
   - type: web
-    name: helpdesk-ticketing-system
+    name: helpdesk-ticketing-system-api
     runtime: node
     plan: free
-    buildCommand: npm install && npm run build
+    buildCommand: npm install
     startCommand: npm start
     envVars:
       - key: NODE_ENV
