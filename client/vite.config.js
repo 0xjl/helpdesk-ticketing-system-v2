@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: process.env.GH_PAGES ? '/helpdesk-ticketing-system/' : '/',
   plugins: [react(), tailwindcss()],
   server: {
     proxy: {

@@ -1,4 +1,5 @@
 const TOKEN_KEY = 'ticketing_token';
+const API_BASE = import.meta.env.VITE_API_URL || '/api';
 
 export function getToken() {
   return localStorage.getItem(TOKEN_KEY);
@@ -14,7 +15,7 @@ async function request(path, options = {}) {
   const headers = { 'Content-Type': 'application/json', ...options.headers };
   if (token) headers.Authorization = `Bearer ${token}`;
 
-  const res = await fetch(`/api${path}`, { ...options, headers });
+  const res = await fetch(`${API_BASE}${path}`, { ...options, headers });
   const data = await res.json().catch(() => ({}));
 
   if (!res.ok) {
